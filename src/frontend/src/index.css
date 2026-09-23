@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-display: "Fraunces", serif;
+    --font-body: "General Sans", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+    --radius: 0.5rem;
+
+    /* Dark ink field (default) */
+    --background: 0.175 0.028 266;
+    --foreground: 0.92 0.012 262;
+    --card: 0.215 0.032 266;
+    --card-foreground: 0.92 0.012 262;
+    --popover: 0.235 0.034 266;
+    --popover-foreground: 0.92 0.012 262;
+
+    --primary: 0.74 0.135 196;
+    --primary-foreground: 0.16 0.03 196;
+
+    --secondary: 0.255 0.032 266;
+    --secondary-foreground: 0.88 0.012 262;
+    --muted: 0.255 0.032 266;
+    --muted-foreground: 0.66 0.02 262;
+
+    --accent: 0.68 0.155 300;
+    --accent-foreground: 0.16 0.03 300;
+
+    --destructive: 0.62 0.2 22;
+    --destructive-foreground: 0.96 0.01 22;
+
+    --success: 0.72 0.15 152;
+    --warning: 0.78 0.15 85;
+
+    --border: 0.3 0.032 266;
+    --input: 0.32 0.032 266;
+    --ring: 0.74 0.135 196;
+
+    /* Octave ramp — ordered level/order encoding, six steps */
+    --octave-0: 0.38 0.09 268;
+    --octave-1: 0.48 0.11 258;
+    --octave-2: 0.58 0.13 238;
+    --octave-3: 0.66 0.14 215;
+    --octave-4: 0.74 0.135 196;
+    --octave-5: 0.88 0.12 168;
+
+    /* Concept accents */
+    --concept-love: 0.66 0.2 12;
+    --concept-frequency: 0.72 0.14 215;
+    --concept-projection: 0.7 0.16 300;
+
+    --chart-1: 0.68 0.16 268;
+    --chart-2: 0.72 0.14 215;
+    --chart-3: 0.66 0.2 12;
+    --chart-4: 0.7 0.16 300;
+    --chart-5: 0.7 0.15 152;
+
+    --sidebar: 0.2 0.03 266;
+    --sidebar-foreground: 0.92 0.012 262;
+    --sidebar-primary: 0.74 0.135 196;
+    --sidebar-primary-foreground: 0.16 0.03 196;
+    --sidebar-accent: 0.255 0.032 266;
+    --sidebar-accent-foreground: 0.88 0.012 262;
+    --sidebar-border: 0.3 0.032 266;
+    --sidebar-ring: 0.74 0.135 196;
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.74 0.135 196) 0%,
+      oklch(0.68 0.155 300) 100%
+    );
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    color-scheme: dark;
+  }
+
+  /* Parchment inversion — a true light mode, never a grey wash */
+  .light {
+    --background: 0.965 0.012 82;
+    --foreground: 0.235 0.022 262;
+    --card: 0.99 0.008 82;
+    --card-foreground: 0.235 0.022 262;
+    --popover: 0.99 0.008 82;
+    --popover-foreground: 0.235 0.022 262;
+
+    --primary: 0.52 0.13 196;
+    --primary-foreground: 0.98 0.008 196;
+
+    --secondary: 0.93 0.014 82;
+    --secondary-foreground: 0.3 0.022 262;
+    --muted: 0.93 0.014 82;
+    --muted-foreground: 0.48 0.02 262;
+
+    --accent: 0.52 0.16 300;
+    --accent-foreground: 0.98 0.008 300;
+
+    --destructive: 0.55 0.2 22;
+    --destructive-foreground: 0.98 0.008 22;
+
+    --success: 0.55 0.15 152;
+    --warning: 0.68 0.15 85;
+
+    --border: 0.88 0.016 82;
+    --input: 0.86 0.016 82;
+    --ring: 0.52 0.13 196;
+
+    --octave-0: 0.42 0.09 268;
+    --octave-1: 0.5 0.11 258;
+    --octave-2: 0.58 0.13 238;
+    --octave-3: 0.64 0.14 215;
+    --octave-4: 0.7 0.135 196;
+    --octave-5: 0.8 0.12 168;
+
+    --concept-love: 0.55 0.2 12;
+    --concept-frequency: 0.58 0.14 215;
+    --concept-projection: 0.55 0.16 300;
+
+    --chart-1: 0.55 0.16 268;
+    --chart-2: 0.58 0.14 215;
+    --chart-3: 0.55 0.2 12;
+    --chart-4: 0.55 0.16 300;
+    --chart-5: 0.55 0.15 152;
+
+    --sidebar: 0.94 0.012 82;
+    --sidebar-foreground: 0.235 0.022 262;
+    --sidebar-primary: 0.52 0.13 196;
+    --sidebar-primary-foreground: 0.98 0.008 196;
+    --sidebar-accent: 0.9 0.016 82;
+    --sidebar-accent-foreground: 0.3 0.022 262;
+    --sidebar-border: 0.88 0.016 82;
+    --sidebar-ring: 0.52 0.13 196;
+
+    color-scheme: light;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Recessed input surface — controls and editable fields */
+  .surface-input {
+    @apply rounded-md border border-input bg-muted/60 shadow-recessed;
+  }
+  /* Raised computed-output surface — results, plots, notebook entries */
+  .surface-output {
+    @apply rounded-lg border border-border bg-card shadow-elevated;
+  }
+  /* Numeric readout — always mono, always tabular */
+  .readout {
+    @apply font-mono tabular-nums tracking-tight;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+  .text-gradient-primary {
+    background-image: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .grid-lines {
+    background-image: linear-gradient(
+        to right,
+        oklch(var(--border) / 0.4) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        oklch(var(--border) / 0.4) 1px,
+        transparent 1px
+      );
+    background-size: 2.5rem 2.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
